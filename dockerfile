@@ -6,6 +6,8 @@ RUN git clone -b master https://github.com/iatulb/service1.git
 
 WORKDIR "/service1"
 
+RUN git pull origin master
+
 RUN composer install \
     --no-interaction \
     --no-plugins \
