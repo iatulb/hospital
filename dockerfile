@@ -1,5 +1,7 @@
 FROM composer:latest
 
+RUN docker-php-ext-install mysqli pdo pdo_mysql
+
 WORKDIR "/"
 
 RUN git clone -b master https://github.com/iatulb/service1.git
@@ -14,8 +16,6 @@ RUN composer install \
     --no-scripts \
     --no-dev \
     --prefer-dist
-
-RUN apt-get install php-mysql
 
 EXPOSE 8080
 
