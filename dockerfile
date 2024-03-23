@@ -15,6 +15,8 @@ RUN composer install \
     --no-dev \
     --prefer-dist
 
+RUN apt-get install php-mysql
+
 EXPOSE 8080
 
 CMD ["php", "-S", "0.0.0.0:8080", "-t", "public/"]

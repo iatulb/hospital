@@ -1,5 +1,5 @@
 1- Build docker image
-docker build . -t lumenapi
+docker build --no-cache . -t lumenapi
 
 2- Run docker container
 docker run -p 8080:8080 --name lumenapi lumenapi
