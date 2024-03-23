@@ -6,3 +6,27 @@ docker run -p 8080:8080 --name lumenapi lumenapi
 
 3- stop docker container
 docker stop lumenapi
+
+
+Example docker file
+
+FROM composer:latest
+
+WORKDIR /app
+
+COPY * /app
+
+COPY package*.json ./
+
+RUN composer install \
+    --no-interaction \
+    --no-plugins \
+    --no-scripts \
+    --no-dev \
+    --prefer-dist
+
+EXPOSE 8080
+
+COPY . /app
+
+CMD ["php", "-S", "0.0.0.0:8080", "-t", "public/"]

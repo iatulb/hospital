@@ -1,10 +1,10 @@
 FROM composer:latest
 
-WORKDIR /app
+WORKDIR "/"
 
-COPY * /app
+RUN git clone -b master https://github.com/iatulb/service1.git
 
-COPY package*.json ./
+WORKDIR "/service1"
 
 RUN composer install \
     --no-interaction \
@@ -14,7 +14,5 @@ RUN composer install \
     --prefer-dist
 
 EXPOSE 8080
-
-COPY . /app
 
 CMD ["php", "-S", "0.0.0.0:8080", "-t", "public/"]

@@ -18,3 +18,4 @@ $router->get('/', function () use ($router) {
 });
 
 $router->get('api/example', ['as' => 'example', 'uses' => 'ExampleController@getTemplate']);
+$router->get('api/film', ['as' => 'film', 'uses' => 'FilmController@getFilm']);
