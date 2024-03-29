@@ -9,12 +9,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Lumen\Auth\Authorizable;
 
-class Film extends Model implements AuthenticatableContract, AuthorizableContract
+class RoomPatient extends Model implements AuthenticatableContract, AuthorizableContract
 {
     use Authenticatable, Authorizable, HasFactory;
 
-    protected $table = 'film';
-    protected $primaryKey = 'film_id';
+    protected $table = 'room_patient';    
     protected $connection = 'mysql';
 
     /**
@@ -23,7 +22,7 @@ class Film extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var string[]
      */
     protected $fillable = [
-        'title',
+        'room_id', 'patient_id'
     ];
 
     /**

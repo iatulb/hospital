@@ -2,7 +2,9 @@
 docker build --no-cache . -t lumenapi
 
 2- Run docker container
-docker run -p 8080:8080 --name lumenapi lumenapi
+docker run -d --name lumenapi81 -p 8081:8080 lumenapi
+
+#port => outside:inside (8081:8080)
 
 3- stop docker container
 docker stop lumenapi

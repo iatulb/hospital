@@ -17,5 +17,11 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('api/example', ['as' => 'example', 'uses' => 'ExampleController@getTemplate']);
-$router->get('api/film', ['as' => 'film', 'uses' => 'FilmController@getFilm']);
+$router->get('api/hospital/{id}', ['as' => 'hospital', 'uses' => 'HospitalController@get']);
+$router->put('api/hospital/{id}', ['as' => 'hospital', 'uses' => 'HospitalController@put']);
+$router->get('api/hospitals', ['as' => 'hospitals', 'uses' => 'HospitalsController@get']);
+$router->post('api/hospital', ['as' => 'hospital', 'uses' => 'HospitalController@post']);
+$router->post('api/room', ['as' => 'room', 'uses' => 'RoomController@post']);
+$router->put('api/room/{id}', ['as' => 'room', 'uses' => 'RoomController@put']);
+$router->get('api/room/{id}', ['as' => 'room', 'uses' => 'RoomController@get']);
+$router->get('api/rooms', ['as' => 'rooms', 'uses' => 'RoomsController@get']);
