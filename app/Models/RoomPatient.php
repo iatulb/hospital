@@ -22,7 +22,7 @@ class RoomPatient extends Model implements AuthenticatableContract, Authorizable
      * @var string[]
      */
     protected $fillable = [
-        'room_id', 'patient_id'
+        'room_id', 'patient_id', 'admit_date', 'discharge_date'
     ];
 
     /**
