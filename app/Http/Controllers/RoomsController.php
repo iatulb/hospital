@@ -17,11 +17,14 @@ class RoomsController extends Controller
     }
 
     public function get(Request $request){
-        $rooms = DB::table('room');
+
+        $rooms = \App\Models\Room::with('hospital')
+        ->select('room.*');
         if (!empty($request->input('hospital_id'))) {
             $rooms = $rooms->where('hospital_id', '=', $request->input('hospital_id'));
         }
         $result = $rooms->get();        
+
         return response()->json([
             'records' => $result,
             'count' => count($result)

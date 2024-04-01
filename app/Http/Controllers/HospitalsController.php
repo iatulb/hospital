@@ -15,10 +15,13 @@ class HospitalsController extends Controller
     }
 
     public function get(){         
-        $records = \App\Models\Hospital::all(['id', 'name', 'phone']);
+        $records = \App\Models\Hospital::with('rooms')
+        ->select('hospital.*');
+
+        $result = $records->get();
         return response()->json([
-            'records' => $records,
-            'count' => count($records)
+            'records' => $result,
+            'count' => count($result)
         ]);
     }
 }

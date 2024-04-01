@@ -8,6 +8,8 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Lumen\Auth\Authorizable;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Room extends Model implements AuthenticatableContract, AuthorizableContract
 {
@@ -33,4 +35,13 @@ class Room extends Model implements AuthenticatableContract, AuthorizableContrac
     protected $hidden = [
         
     ];
+
+    /**
+     * Get the hopsital associated with the room.
+     */    
+    
+    public function hospital(): BelongsTo
+    {
+        return $this->belongsTo(\App\Models\Hospital::class);
+    }
 }

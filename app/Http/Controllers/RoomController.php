@@ -16,8 +16,9 @@ class RoomController extends Controller
         //
     }
 
-    public function get($id){         
-        return response()->json(\App\Models\Room::find($id));
+    public function get($id){   
+        $room = \App\Models\Room::with('hospital')->where('id', '=', $id)->get();        
+        return response()->json($room);
     }
 
     public function post(Request $request){

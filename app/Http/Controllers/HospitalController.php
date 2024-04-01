@@ -17,8 +17,9 @@ class HospitalController extends Controller
         //
     }
 
-    public function get($id){         
-        return response()->json(\App\Models\Hospital::find($id));
+    public function get($id){   
+        $hospital = \App\Models\Hospital::with('rooms')->where('id', '=', $id)->get();              
+        return response()->json($hospital);
     }
 
     public function post(Request $request){
@@ -26,7 +27,7 @@ class HospitalController extends Controller
  
         return response()->json($hospital);        
     }
-    
+
     public function put(Request $request, $id){
         $hospital = \App\Models\Hospital::find($id);
         $hospital->name = $request->input('name');
