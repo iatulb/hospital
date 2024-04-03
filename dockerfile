@@ -1,6 +1,7 @@
 FROM composer:latest
 
-RUN docker-php-ext-install mysqli pdo pdo_mysql sockets
+RUN docker-php-ext-install mysqli pdo pdo_mysql
+
 
 WORKDIR "/"
 
