@@ -44,4 +44,9 @@ class Room extends Model implements AuthenticatableContract, AuthorizableContrac
     {
         return $this->belongsTo(\App\Models\Hospital::class);
     }
+
+    public function patient()
+    {
+        return $this->belongsToMany(\App\Models\Patient::class, 'room_patient');
+    }
 }

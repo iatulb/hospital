@@ -25,3 +25,5 @@ $router->post('api/room', ['as' => 'room', 'uses' => 'RoomController@post']);
 $router->put('api/room/{id}', ['as' => 'room', 'uses' => 'RoomController@put']);
 $router->get('api/room/{id}', ['as' => 'room', 'uses' => 'RoomController@get']);
 $router->get('api/rooms', ['as' => 'rooms', 'uses' => 'RoomsController@get']);
+$router->post('api/roompatient', ['as' => 'roompatient', 'uses' => 'RoomPatientController@post']);
+$router->patch('api/roompatient/{id}', ['as' => 'roompatient', 'uses' => 'RoomPatientController@patch']);

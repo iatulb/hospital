@@ -1,0 +1,5 @@
+[Wed Apr  3 11:05:25 2024] PHP 8.2.6 Development Server (http://localhost:8000) started
+[Wed Apr  3 11:05:33 2024] [::1]:55722 Accepted
+[Wed Apr  3 11:05:33 2024] [::1]:55722 [200]: POST /api/roompatient
+[Wed Apr  3 11:05:33 2024] [::1]:55722 Closing
+^C

@@ -7,15 +7,15 @@ use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Laravel\Lumen\Auth\Authorizable;
 
-class RoomPatient extends Model implements AuthenticatableContract, AuthorizableContract
+class Patient extends Model implements AuthenticatableContract, AuthorizableContract
 {
     use Authenticatable, Authorizable, HasFactory;
 
-    protected $table = 'room_patient';    
+    protected $table = 'patient';    
     protected $connection = 'mysql';
-    public $timestamps = false;
 
     /**
      * The attributes that are mass assignable.
@@ -23,7 +23,7 @@ class RoomPatient extends Model implements AuthenticatableContract, Authorizable
      * @var string[]
      */
     protected $fillable = [
-        'room_id', 'patient_id', 'admit_date', 'discharge_date'
+        'name', 'address', 'phone'
     ];
 
     /**
@@ -34,4 +34,9 @@ class RoomPatient extends Model implements AuthenticatableContract, Authorizable
     protected $hidden = [
         
     ];
+
+    // public function rooms(): HasMany
+    // {
+    //     return $this->hasMany(\App\Models\Room::class);
+    // }
 }

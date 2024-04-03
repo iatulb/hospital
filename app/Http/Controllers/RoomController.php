@@ -17,7 +17,7 @@ class RoomController extends Controller
     }
 
     public function get($id){   
-        $room = \App\Models\Room::with('hospital')->where('id', '=', $id)->get();        
+        $room = \App\Models\Room::with('hospital')->with('patient')->where('id', '=', $id)->get();        
         return response()->json($room);
     }
 
