@@ -5,7 +5,7 @@ RUN docker-php-ext-install mysqli pdo pdo_mysql
 
 WORKDIR "/"
 
-RUN git clone -b master https://github.com/iatulb/service1.git
+RUN git clone -b master https://github.com/iatulb/hospital.git
 
 WORKDIR "/service1"
 
