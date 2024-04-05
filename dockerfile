@@ -1,13 +1,15 @@
 FROM composer:latest
 
-RUN docker-php-ext-install mysqli pdo pdo_mysql
+LABEL maintainer="Atul BAJARE"
+LABEL service="Hospital Service"
 
+RUN docker-php-ext-install mysqli pdo pdo_mysql
 
 WORKDIR "/"
 
 RUN git clone -b master https://github.com/iatulb/hospital.git
 
-WORKDIR "/service1"
+WORKDIR "/hospital"
 
 RUN git pull origin master
 
